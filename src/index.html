@@ -6,8 +6,104 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./assets/moviedisplay.js"></script>
 </head>
-<body>
-  <app-root></app-root>
+<body class="mat-typography">
+
+  <button onclick="getTextBoxValue();">Insert Input</button>
+
+  <app-moviedisplay id="custommoviedisplay"></app-moviedisplay>
+
+  <div class="mat-app-background basic-container">
+    <dialog-content-example id="details"></dialog-content-example>
+  </div>
+
+  <script>
+
+function getTextBoxValue(){
+      var movies = [
+		{"id":"24428","title":"The Avengers"},
+    {"id":"299536","title":"Avengers: Infinity War"}];
+    document.getElementById("custommoviedisplay").searchedmovies = movies;
+  }
+
+  const moviedisplay = document.querySelector('app-moviedisplay');
+    moviedisplay.addEventListener('result',(event) =>{
+      console.log(`"Movie Display event" emitted: ${event.detail}`);
+      document.getElementById('details').movie = event.detail.id;
+      const Display = document.querySelector('dialog-content-example');
+      var contentx = Display.shadowRoot;
+      contentx.getElementById('testBtn').click();
+
+    });
+
+const element = document.querySelector('dialog-content-example');
+if(element!=null )
+{
+  element.addEventListener('movieEvent',(event) =>{
+           console.log(` event for cart: ${event.detail}`);
+     });
+}
+  </script>
+
 </body>
 </html>
+
+
+
+<!-- 
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+  
+<body>
+<h2 mat-dialog-title></h2>
+<mat-dialog-content class="mat-typography">
+<div *ngIf="movieDetails">
+<div class="card">
+      <div class="row no-gutters">
+        <div class="col-lg-9">
+          <div class="container-fluid">
+            <img class="image" src="https://image.tmdb.org/t/p/original{{movieDetails.backdrop_path}}" height="100%" alt="">
+            <div class="card-img-overlay middle">
+              <h1 style="font-size: 3vw!important;color:white;"> {{movieDetails.title}} </h1>
+              <p class="text text-white" style="font-size: 2vw!important;font-weight: 300;">  {{movieDetails.overview}}</p>
+        </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card-body">
+            <h5 class="card-title text-black" style="text-align: center;">{{movieDetails.title}}  </h5>
+                <h6 class="card-title text-primary" style="text-align: center;">IMDB : {{movieDetails.vote_average}}/10</h6>
+            <p class="card-text ">
+              <strong> Release Year :  </strong>  {{movieDetails.release_date}}
+              <br>
+               <strong>Tagline : </strong> {{movieDetails.tagline}}
+               <br>
+               <strong>Runtime : </strong>{{movieDetails.runtime}} minutes
+                <br>
+                <br>
+                 {{movie2.Plot}}
+               <br>
+               <br> 
+                <strong>Budget : </strong> $ {{movieDetails.budget}}
+                <br>
+                <br>
+                <strong>Revenue :</strong> $ {{movieDetails.revenue}}
+            </p>
+             <p class="card-text"><small class="text-muted">Release Date : {{movieDetails.release_date}}</small></p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    </div> 
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="button" class="btn btn-success" (click)="AddToCart();">Add To Cart</button>
+  </mat-dialog-actions>
+  </body> -->

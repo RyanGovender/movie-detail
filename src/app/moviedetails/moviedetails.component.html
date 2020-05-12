@@ -1,0 +1,52 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+   
+    <div class="card mb-3 text-white mt-5" style="background-color:#282828 ;">
+        <div class="row no-gutters">
+          <div class="col-lg-9">
+            <div class="container-fluid">
+              <img class="image" src="https://image.tmdb.org/t/p/original{{movieDetails.backdrop_path}}" height="100%" alt="">
+              <div class="card-img-overlay middle">
+                <h1 style="font-size: 3vw!important;"> {{movieDetails.title}} </h1>
+                <p class="text text-white" style="font-size: 2vw!important;font-weight: 300;">  {{movieDetails.overview}}</p>
+          </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card-body">
+              <h5 class="card-title " style="text-align: center;">{{movieDetails.title}}  </h5>
+                  <h6 class="card-title text-primary" style="text-align: center;">IMDB : {{movieDetails.vote_average}}/10</h6>
+              <p class="card-text ">
+                <strong> Release Year :  </strong>  {{movieDetails.release_date}}
+                <br>
+                 <strong>Tagline : </strong> {{movieDetails.tagline}}
+                 <br>
+                 <strong>Runtime : </strong>{{movieDetails.runtime}} minutes
+                  <br>
+                  <br>
+                  <!-- {{movie2.Plot}}
+                 <br>
+                 <br> -->
+                  <strong>Budget : </strong> ${{movieDetails.budget}}
+                  <br>
+                  <br>
+                  <strong>Revenue :</strong> ${{movieDetails.revenue}}
+              </p>
+               <p class="card-text"><small class="text-muted">Release Date : {{movieDetails.release_date}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-similarmovies movieId={{movieDetails.id}}></app-similarmovies>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
